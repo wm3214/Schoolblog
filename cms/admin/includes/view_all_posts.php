@@ -1,4 +1,7 @@
-<?php ob_start() ?>
+<?php include_once "includes/header.php";
+      include_once "functions.php";
+      ob_start();
+?>
 
 <table class="table table-bordered table-hover">
                             <thead>
@@ -70,9 +73,10 @@
 
                     // Deleten van content 
                         if(isset($_GET['delete'])){
-                        $the_post_id = $_GET['delete'];
-                            $query = "DELETE FROM posts WHERE post_id =  {$the_post_id} ";
-                            $delete_query = mysqli_query($connection, $query);
+                        $delete_Post_Id = $_GET['delete'];
+                            $query = "DELETE FROM posts WHERE post_id =  {$delete_Post_Id} ";
+                            $delete_Query = mysqli_query($connection, $query);
+                            header("Location: posts.php");
                         }
                         
                         ?>

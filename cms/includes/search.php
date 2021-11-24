@@ -37,13 +37,12 @@
     if($count == 0){
         echo "<h1> NO RESULTS </h1>";
     } else {
-        //$query = "SELECT * FROM posts"; 
+        $query = "SELECT * FROM posts"; 
         $select_all_posts = mysqli_query($connection,$query);
         while($row = mysqli_fetch_assoc($search_query)){
             $post_title = $row['Post_title'];
             $post_author = $row['Post_author'];
             $post_date = $row['Post_date'];
-            $post_image = $row['Post_image'];
             $post_content = $row['Post_content'];
             $post_tags = $row['Post_tags'];
             $post_comment_count = $row['Post_comment_count'];

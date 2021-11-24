@@ -32,13 +32,18 @@ $query = "SELECT * from posts WHERE post_id = $the_post_id";
             $post_image_temp = $_FILES['Image']['name'];
             $post_content = $_POST['post_content'];
             $post_tags = $_POST['post_tags'];
+            $post_category_id = $_POST['post_category'];
 
-
-            //als post image leeg blijft, select vorige image
+            //als post image leeg blijft, geef message aan dat image niet leeg mag blijven
         move_uploaded_file($post_image_temp, "../images/$post_image");
         if(empty($post_image)){
+        
+            $query = "SELECT * FROM posts where post_id = $the_post_id ";
+            $select_image = mysqli_query($connection, $query);
             
-            echo "Image moet altijd worden geselecteerd";
+            while($row = mysqli_fetch_array($select_image)){
+                $post_image = $row['Post_image'];
+            }
             
         }
 
@@ -75,7 +80,7 @@ $query = "SELECT * from posts WHERE post_id = $the_post_id";
 </div>
 
 <div class="form-group">
-   <select name='post_category' id='post_category' >
+   <select name='post_category' id='' >
         <?php
         
         //dynamisch editen van categories in edit pagina
