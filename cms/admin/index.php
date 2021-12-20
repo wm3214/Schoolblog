@@ -34,7 +34,7 @@
                  
                     <?php 
                     // telt het aantal gemaakte posts (dynamisch)
-                    $query = "SELECT * FROM posts";
+                    $query = "SELECT Post_id FROM posts";
                     $select_All_Posts = mysqli_query($connection, $query);
                     $post_Counts = mysqli_num_rows($select_All_Posts);
 
@@ -63,12 +63,14 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                     
                     <?php 
-// telt het aantal gemaakte posts (dynamisch)
+                    // telt het aantal gemaakte posts (dynamisch)
+                    $query = "SELECT comment_id FROM comments";
+                    $select_All_Comments = mysqli_query($connection, $query);
+                    $comment_Counts = mysqli_num_rows($select_All_Comments);
 
-                    echo "<div class='huge'>23</div>";
-?>                   
+                    echo "<div class='huge'>{$comment_Counts}</div>";
+                    ?>
   
                     <div>Comments</div>
                     </div>
