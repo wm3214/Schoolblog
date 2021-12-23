@@ -20,7 +20,7 @@
             
             <?php 
             // Laat alle posts zien die zijn aangemaakt. 
-            $query = "SELECT * FROM posts"; 
+            $query = "SELECT * FROM posts ORDER BY Post_date DESC"; 
             $select_all_posts = mysqli_query($connection,$query);
             while($row = mysqli_fetch_assoc($select_all_posts)){
                 $post_id = $row['Post_id'];
