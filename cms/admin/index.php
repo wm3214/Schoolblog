@@ -16,7 +16,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welkom bij het adminportaal
-                            <small>author</small>
+                            <small><?php echo $_SESSION['username'] ?></small>
                         </h1>
                     </div>
                 </div>
