@@ -2,13 +2,15 @@
 <?php ob_start(); ?>
 <?php session_start(); ?>
 <?php include "../includes/db.php" ?>
+
 <?php
-if(isset($_SESSION['user_role'])) {
-    if($_SESSION['user_role'] !== 'admin') {
-        header("Location: ../index.php");
-    }
-}
+	if($_SESSION['user_role'] != "admin")	//If not admin boot out of admin pages
+	{
+		header('Location: //localhost/');
+		exit();
+	}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
