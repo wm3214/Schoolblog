@@ -14,10 +14,22 @@ while($row = mysqli_fetch_assoc($select_all_comments)){
 			<div class='media-body'>
 			<h4 class='media-heading'>
 			");
-		
-		if($row['user_id']  == NULL){
-			echo "Anon";
+		$user_id = $row['user_id'];
+		if($user_id  == NULL){
+			echo "Gast";
 		}
+		else{
+			$query = "SELECT user_firstname FROM users WHERE user_id = $user_id";
+			$select_user_query = mysqli_query($connection, $query);
+			while($user_row = mysqli_fetch_array($select_user_query)) 
+			{
+				$user_name = $user_row['user_firstname'];
+			}
+			echo $user_name;
+			
+		}
+		
+		
 	
 		print("<small> ");
 		print($row['comment_date']);
