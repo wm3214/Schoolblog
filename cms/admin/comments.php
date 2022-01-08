@@ -2,6 +2,21 @@
       include "functions.php";
       ob_start();
 ?>
+<?php  // Deleting & Allowing Comment 
+if(isset($_GET['delete']))
+{
+	$delete_comment_id = $_GET['delete'];
+	$query = "DELETE FROM comments WHERE comment_id =  {$delete_comment_id} ";
+	$delete_Query = mysqli_query($connection, $query);
+}
+if(isset($_GET['allow']))
+{
+	$allow_comment_id = $_GET['allow'];
+	$query = "UPDATE comments SET comment_check = 1 WHERE comment_id =  {$allow_comment_id} ";
+	$allow_Query = mysqli_query($connection, $query);
+}
+  
+ ?>
 
 <body>
 
@@ -32,8 +47,12 @@ $source = $_GET['source'];
 $source = '';
 }
 switch($source) {
-    case 'edit_post';
-    //include "includes/comments/edit.php";	WIP
+	case 'edit';
+    include "includes/comments/edit.php";
+    break;
+    
+    case 'allowable';
+    include "includes/comments/view_allowable.php";	
     break;
 
     default:
