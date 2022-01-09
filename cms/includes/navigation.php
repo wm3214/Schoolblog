@@ -25,11 +25,12 @@
                    
             <?php 
             // --- Display categories from MySQL database ---
-            $query = "SELECT * FROM categories";
+            $query = "SELECT cat_id, cat_title FROM categories";
             $select_all_categories_query = mysqli_query($connection,$query);
             while($row = mysqli_fetch_assoc($select_all_categories_query)){
+				$cat_id = $row['cat_id'];
                 $cat_title = $row['cat_title'];
-                echo "<li><a href='#'>{$cat_title}</a></li>";
+                echo "<li><a href='category.php?category=$cat_id'>{$cat_title}</a></li>";
             } 
             if(isset($_SESSION['user_role']))
             {
