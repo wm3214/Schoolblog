@@ -16,7 +16,10 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
+			
+			<h1 class="page-header">
+				Welkom bij mijn schoolblog
+			</h1>
             
             <?php 
             // Laat alle posts zien die zijn aangemaakt. 
@@ -29,29 +32,26 @@
                 $post_date = $row['Post_date'];
                 $post_image = $row['Post_image'];
                  // content op de website is truncated naar 50 karakters
-                $post_content = substr($row['Post_content'], 0, 50);
+                $post_content = substr($row['Post_content'], 0, 300);
+                $post_content .= ".....";
                 $post_tags = $row['Post_tags'];
                 $post_comment_count = $row['Post_comment_count'];
                 $post_status = $row['Post_status'];
              ?>
-
-
-
-                </h1>
 
                 <!-- First Blog Post -->
                 <h2>
                     <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"> <?php echo $post_author; ?></a>
+                    Door <a href="index.php"> <?php echo $post_author; ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date; ?></p>
                 <hr>
                 <img class="img-responsive" src= "images/<?php echo $post_image; ?>" alt="">
                 <hr>
                 <p><?php echo $post_content; ?></p>
-                <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <a class="btn btn-primary" href="post.php?p_id=<?php echo $post_id; ?>">Lees Meer<span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
 
