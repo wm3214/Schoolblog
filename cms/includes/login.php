@@ -2,7 +2,11 @@
 <?php session_start(); ?>
 
 <?php
-if(isset($_POST['login'])){
+if(!isset($_POST['login'])){
+	header("Location: /index.php");
+}
+else
+{
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -32,9 +36,9 @@ if($username !== $db_username && $password !== @$db_user_password) {
             $_SESSION['lastname'] = $db_user_lastname;
             $_SESSION['user_role'] = $db_user_role;
 
-            header("Location: ../admin");
+            header("Location: /admin");
         } else {
-            header("Location: ../index.php");
+            header("Location: /index.php");
 }
 
 
