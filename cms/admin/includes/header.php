@@ -24,6 +24,8 @@
 
     <title>Admin portaal </title>
 
+    <link href="css/summernote.css" rel="stylesheet">
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
