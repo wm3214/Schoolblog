@@ -13,6 +13,17 @@ else
 $username = mysqli_real_escape_string($connection, $username );
 $password = mysqli_real_escape_string($connection, $password);
 
+    // hashes password
+    $query = "SELECT randSalt FROM users";
+    $select_randsalt_query = mysqli_query($connection, $query);
+    if (!$select_randsalt_query) {
+        die("Query Failed" . mysqli_error($connection));
+    }
+
+    $row = mysqli_fetch_array($select_randsalt_query);
+    $salt = $row['randSalt'];
+    $password = crypt($password,$salt);
+
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $select_user_query = mysqli_query($connection, $query);
     if(!$select_user_query){
@@ -27,7 +38,7 @@ while($row = mysqli_fetch_array($select_user_query)) {
     $db_user_lastname = $row['user_lastname'];
     $db_user_role = $row['user_role'];
 }
-
+    // checks if stored hash is the same
 if($username !== $db_username && $password !== @$db_user_password) {
     header("Location: ../index.php");
     }   else if ($username == $db_username && $password == @$db_user_password) {

@@ -19,11 +19,10 @@ if(isset($_POST['submit'])) {
         if (!$select_randsalt_query) {
             die("Query Failed" . mysqli_error($connection));
         }
-//            Encrypt wachtwoorden, werkt niet
-//        $row = mysqli_fetch_array($select_randsalt_query);
-//        $salt = $row['randSalt'];
-//
-//        $password = crypt($password,$salt);
+        // Encrypt wachtwoorden
+        $row = mysqli_fetch_array($select_randsalt_query);
+        $salt = $row['randSalt'];
+        $password = crypt($password,$salt);
 
         // Maakt nieuwe "viewer" aan
         $query = "INSERT INTO users (username, user_email, user_password, user_role) ";
