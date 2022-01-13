@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include "header.php";?>
 <?php include "db.php"; ?>
 
@@ -23,7 +20,7 @@
 					$search =  $_POST['search'];
 				}
 
-				$query = "SELECT * FROM posts WHERE Post_tags LIKE '%$search%'";
+				$query = "SELECT * FROM posts WHERE Post_tags LIKE '%$search%' ORDER BY Post_date DESC";
 				$search_query = mysqli_query($connection, $query);
 
 				if(!$search_query){

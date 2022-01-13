@@ -64,13 +64,13 @@
                 
                 <!-- Comments Form -->
                 <div class="well">
-                    <h4>Leave a Comment:</h4>
+                    <h4>Laat een Comment achter:</h4>
                     <form role="form" method="post">
                         <div class="form-group">
                             <textarea class="form-control" rows="3" maxlength="255" name="comment"></textarea>
                         </div>
                         <input type="hidden" value="<?php echo $_GET['p_id']; ?>" name="p_id">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Opsturen</button>
                     </form>
                 </div>
 
