@@ -25,7 +25,7 @@ if(isset($_POST['submit'])) {
 		$search_query = mysqli_query($connection, $query);
 		$email_count = mysqli_num_rows($search_query);
 		if($username_count > 0){//Check for duplicate Username
-			$message = "Gebreuikersnaam is al in gebruik";
+			$message = "Gebruikersnaam is al in gebruik";
 		}
 		elseif($email_count > 0){//Check for duplicate email
 			$message = "Email is al in gebruik";

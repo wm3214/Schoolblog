@@ -80,7 +80,7 @@ if(empty($post_image)){
 </div>
 
 <div class="form-group">
-<label for='post_Title'> Post category Title</label>
+<label for='post_Title'> Post Category </label><br>
 <select name='post_category' id='' >
 <?php
 

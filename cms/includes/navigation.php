@@ -30,7 +30,7 @@
 						{
 							echo "<li><a href='/admin'>Admin</a></li>";
 						}
-						echo "<li><a href='/logout.php'>Logout</a></li>";
+						echo "<li><a href='includes/logout.php'>Logout</a></li>";
 					}
 					else
 					{
