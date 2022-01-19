@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 04 jan 2022 om 20:12
--- Serverversie: 10.4.22-MariaDB
--- PHP-versie: 8.1.1
+-- Gegenereerd op: 19 jan 2022 om 17:33
+-- Serverversie: 10.4.21-MariaDB
+-- PHP-versie: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,7 +63,9 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`comment_id`, `post_id`, `user_id`, `comment_check`, `comment_date`, `comment_cont`) VALUES
 (1, 33, NULL, b'0', '2021-12-20', 'Hallo post ik ben comment'),
-(2, 33, NULL, b'1', '2021-12-20', 'Hallo post ik ben comment');
+(2, 33, NULL, b'1', '2021-12-20', 'Hallo post ik ben comment'),
+(3, 33, NULL, b'1', '2022-01-13', '    hoi dit is mijn reactie'),
+(4, 33, 7, b'1', '2022-01-13', 'hoi dit is daxdax');
 
 -- --------------------------------------------------------
 
@@ -107,9 +109,9 @@ CREATE TABLE `users` (
   `user_firstname` varchar(255) NOT NULL,
   `user_lastname` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
-  `user_image` varchar(255) NOT NULL,
+  `user_image` text NOT NULL,
   `user_role` varchar(255) NOT NULL,
-  `randSalt` varchar(255) NOT NULL DEFAULT '$2y$10$iusesomecrazystring22'
+  `randSalt` varchar(255) NOT NULL DEFAULT '$2a$07$eDzXKFfCxcJLNDSrnNgJNbEmA$'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -117,10 +119,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
-(4, 'dax', 'dax', 'Dax', 'Moorman', 'dax@moorman.nlff', '', 'viewer', '$2y$10$automatiseringsbedrijf'),
-(5, 'test', 'test', 'test', 'test', 'test@test.nl', '', 'admin', '$2y$10$automatiseringsbedrijf'),
-(19, 'test123', '$2y$10$automatiseringsbedrijeu3L1mXo416221Nlu4MAV.TUEx7IJglC', '', '', 'test123@email.com', '', 'viewer', '$2y$10$iusesomecrazystring22'),
-(20, 'test76532', 'hiybesfdaiyhfesihfesiuhsef', '', '', 'test@test.be', '', 'viewer', '$2y$10$iusesomecrazystring22');
+(4, 'admin', '$2a$07$eDzXKFfCxcJLNDSrnNgJNOEBAtYCchSwF/qERgZMzONJdbCuu5An6', 'dax', 'moorman', 'admin@mail.nl', '', 'admin', '$2a$07$eDzXKFfCxcJLNDSrnNgJNbEmA$'),
+(5, 'test', '$2a$07$eDzXKFfCxcJLNDSrnNgJNOU2sY4MBKb0t.hpXhSmdtW8OFoLVAW7G', 'test', 'test', 'test@test.nl', '', 'admin', '$2a$07$eDzXKFfCxcJLNDSrnNgJNbEmA$'),
+(7, 'dax123', '$2a$07$eDzXKFfCxcJLNDSrnNgJNOKiHFSBnR16qeddQmaxmvKqMU6/yXIrq', 'daxdax', 'dax', 'dax@dax.nl', '', 'viewer', '$2a$07$eDzXKFfCxcJLNDSrnNgJNbEmA$');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -164,19 +165,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT voor een tabel `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT voor een tabel `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `Post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `Post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

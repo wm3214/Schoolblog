@@ -40,11 +40,12 @@ if(isset($_POST['create_post'])) {
 <form action='' method='post' enctype="multipart/form-data">
 
 <div class="form-group">
-    <label for='post_Title'> Post category Title</label>
+    <label for='post_Title'> Post Title</label>
     <input type="text" class="form-control" name="title">
 </div>
 
 <div class="form-group">
+    <label for='post_category'> Post Category</label><br>
    <select name='post_category' id='post_category' >
         <?php
         
