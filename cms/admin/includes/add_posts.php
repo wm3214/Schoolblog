@@ -6,7 +6,6 @@ if(isset($_POST['create_post'])) {
     $post_title = $_POST['title'];
     $post_author = $_POST['author'];
     $post_category_id = $_POST['post_category'];
-    $post_status = $_POST['post_Status'];
     $post_image = $_FILES['Image']['name'];
     $post_image_temp = $_FILES['Image']['tmp_name'];
     $post_tags = $_POST['tags'];
@@ -28,7 +27,7 @@ if(isset($_POST['create_post'])) {
     '{$post_content}',
     '{$post_tags}',
     '{$post_comment_count}', 
-    '{$post_status}')";
+    '{}')";
 
     $create_post_query = mysqli_query($connection, $query);
     confirmQuery($create_post_query);
@@ -69,11 +68,6 @@ if(isset($_POST['create_post'])) {
 <div class="form-group">
     <label for='post_Author'> Post author</label>
     <input type="text" class="form-control" name="author">
-</div>
-
-<div class="form-group">
-    <label for='Post_Status'> Post Status</label>
-    <input type="text" class="form-control" name="post_Status">
 </div>
 
 <div class="form-group">

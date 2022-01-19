@@ -15,7 +15,6 @@ while($row = mysqli_fetch_assoc($select_posts_by_id)){
 	$post_author = $row['Post_author'];
 	$post_title = $row['Post_title'];
 	$post_category_id = $row['Post_category_id'];
-	$post_status = $row['Post_status'];
 	$post_image = $row['Post_image'];
 	$post_content = $row['Post_content'];
 	$post_tags = $row['Post_tags'];
@@ -27,7 +26,6 @@ while($row = mysqli_fetch_assoc($select_posts_by_id)){
 if(isset($_POST['Update_post'])){
 	$post_author = $_POST['post_author'];
 	$post_title = $_POST['post_title'];
-	$post_status = $_POST['post_status'];
 	$post_image = $_FILES['Image']['name'];
 	$post_image_temp = $_FILES['Image']['name'];
 	$post_content = $_POST['post_content'];
@@ -53,7 +51,6 @@ if(empty($post_image)){
 	$query .= "post_category_id = '{$post_category_id}', ";
 	$query .= "post_date = now(), ";
 	$query .= "post_author = '{$post_author}', ";
-	$query .= "post_status = '{$post_status}', ";
 	$query .= "post_tags = '{$post_tags}', ";
 	$query .= "post_content = '{$post_content}', ";
 	$query .= "post_image = '{$post_image}' ";
@@ -104,11 +101,6 @@ while($row = mysqli_fetch_assoc($select_categories)){
 <div class="form-group">
     <label for='post_Author'> Post author</label>
     <input value='<?php echo $post_author; ?>' type="text" class="form-control" name="post_author">
-</div>
-
-<div class="form-group">
-    <label for='post_status'> Post author</label>
-    <input value='<?php echo $post_status; ?>' type="text" class="form-control" name="post_status">
 </div>
 
 <div class="form-group">
